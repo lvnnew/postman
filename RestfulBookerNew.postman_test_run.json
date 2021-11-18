@@ -1,0 +1,314 @@
+{
+	"id": "ae2e088e-9373-47d4-a2dc-0481f569a54d",
+	"name": "RestfulBookerNew",
+	"timestamp": "2021-11-18T18:53:50.737Z",
+	"collection_id": "12709744-8ed6f575-04cc-43c0-8719-3c0c5274530c",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 16,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "39ef8457-ed7f-4fb7-adcd-c63701c10bf3",
+			"name": "Ping",
+			"url": "https://restful-booker.herokuapp.com/ping",
+			"time": 495,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Статус код 201": true
+			},
+			"testPassFailCounts": {
+				"Статус код 201": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				495
+			],
+			"allTests": [
+				{
+					"Статус код 201": true
+				}
+			]
+		},
+		{
+			"id": "2b42df5c-015d-4b7c-ae02-8dea2a09a651",
+			"name": "Get Token",
+			"url": "https://restful-booker.herokuapp.com/auth",
+			"time": 148,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"В ответе есть слово token": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"В ответе есть слово token": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				148
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"В ответе есть слово token": true
+				}
+			]
+		},
+		{
+			"id": "0b5cade1-97a0-4b11-aa84-00a63a51e358",
+			"name": "Create New Booking",
+			"url": "https://restful-booker.herokuapp.com/booking",
+			"time": 152,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"В ответе есть слово bookingid": true,
+				"Значение depositpaid = false": true,
+				"Дата заселения 2021-12-06": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"В ответе есть слово bookingid": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Значение depositpaid = false": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Дата заселения 2021-12-06": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				152
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"В ответе есть слово bookingid": true,
+					"Значение depositpaid = false": true,
+					"Дата заселения 2021-12-06": true
+				}
+			]
+		},
+		{
+			"id": "06e2088d-ddb1-4370-b695-9bec0b471487",
+			"name": "Get All Booking Id's",
+			"url": "https://restful-booker.herokuapp.com/booking",
+			"time": 150,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"В ответе есть идентификатор нового бронирования": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"В ответе есть идентификатор нового бронирования": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				150
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"В ответе есть идентификатор нового бронирования": true
+				}
+			]
+		},
+		{
+			"id": "eb7d54f5-8321-4ea9-8078-cf8e1a2a62e5",
+			"name": "Get My Booking Data",
+			"url": "https://restful-booker.herokuapp.com/booking/11",
+			"time": 148,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Ответ содержит: Oleg Kirilov 250 false 2021-12-06 2021-12-09 Breakfast": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ответ содержит: Oleg Kirilov 250 false 2021-12-06 2021-12-09 Breakfast": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				148
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Ответ содержит: Oleg Kirilov 250 false 2021-12-06 2021-12-09 Breakfast": true
+				}
+			]
+		},
+		{
+			"id": "049bf395-e3d5-49b4-9b72-2ecf1c34a752",
+			"name": "Update Booking",
+			"url": "https://restful-booker.herokuapp.com/booking/11",
+			"time": 153,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Значение depositpaid = true": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Значение depositpaid = true": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				153
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Значение depositpaid = true": true
+				}
+			]
+		},
+		{
+			"id": "069254b2-c5f2-4f59-a213-1a04602acef7",
+			"name": "Delete My Booking",
+			"url": "https://restful-booker.herokuapp.com/booking/11",
+			"time": 151,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Статус код Created": true
+			},
+			"testPassFailCounts": {
+				"Статус код Created": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				151
+			],
+			"allTests": [
+				{
+					"Статус код Created": true
+				}
+			]
+		},
+		{
+			"id": "088d56ef-7656-4ff3-9197-a8f5c6e6c43b",
+			"name": "Get My Booking Id",
+			"url": "https://restful-booker.herokuapp.com/booking/%7B%7BbokingId%7D%7D",
+			"time": 149,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Статус код Not Found": true,
+				"Status code is 404": true
+			},
+			"testPassFailCounts": {
+				"Статус код Not Found": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 404": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				149
+			],
+			"allTests": [
+				{
+					"Статус код Not Found": true,
+					"Status code is 404": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 1546,
+	"collection": {
+		"requests": [
+			{
+				"id": "39ef8457-ed7f-4fb7-adcd-c63701c10bf3",
+				"method": "GET"
+			},
+			{
+				"id": "2b42df5c-015d-4b7c-ae02-8dea2a09a651",
+				"method": "POST"
+			},
+			{
+				"id": "0b5cade1-97a0-4b11-aa84-00a63a51e358",
+				"method": "POST"
+			},
+			{
+				"id": "06e2088d-ddb1-4370-b695-9bec0b471487",
+				"method": "GET"
+			},
+			{
+				"id": "eb7d54f5-8321-4ea9-8078-cf8e1a2a62e5",
+				"method": "GET"
+			},
+			{
+				"id": "049bf395-e3d5-49b4-9b72-2ecf1c34a752",
+				"method": "PATCH"
+			},
+			{
+				"id": "069254b2-c5f2-4f59-a213-1a04602acef7",
+				"method": "DELETE"
+			},
+			{
+				"id": "088d56ef-7656-4ff3-9197-a8f5c6e6c43b",
+				"method": "GET"
+			}
+		]
+	}
+}
