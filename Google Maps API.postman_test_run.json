@@ -1,0 +1,240 @@
+{
+	"id": "9df2a269-6bb2-421c-8f1c-924376f09b9c",
+	"name": "Google Maps API",
+	"timestamp": "2021-11-19T10:34:12.814Z",
+	"collection_id": "12709744-c76aae6d-f341-482c-98b6-99ccfbf66565",
+	"folder_id": 0,
+	"environment_id": "ecce2690-7c3a-4270-8be9-9953cbad8102",
+	"totalPass": 12,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "1b2bc08e-4691-41ed-ad08-52949cd07509",
+			"name": "Add Place",
+			"url": "https://rahulshettyacademy.com/maps/api/place/add/json?key=qaclick123",
+			"time": 568,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Берем значение placr_id и заносим его значение в одноименную переменную созданую в enveroments": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Берем значение placr_id и заносим его значение в одноименную переменную созданую в enveroments": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				568
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Берем значение placr_id и заносим его значение в одноименную переменную созданую в enveroments": true
+				}
+			]
+		},
+		{
+			"id": "edf5b15e-b409-41bd-8671-c8a4ce88d8b8",
+			"name": "Get Place",
+			"url": "https://rahulshettyacademy.com/maps/api/place/get/json?key=qaclick123&place_id=b260480cde5df0a9bc2724ec5ae61acb",
+			"time": 2239,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Проверка всего ответа": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Проверка всего ответа": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2239
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Проверка всего ответа": true
+				}
+			]
+		},
+		{
+			"id": "d7be608c-3d5b-4277-9f64-ade311e393f6",
+			"name": "Update Place",
+			"url": "https://rahulshettyacademy.com/maps/api/place/update/json?key=qaclick123&place_id=b260480cde5df0a9bc2724ec5ae61acb",
+			"time": 2641,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"В ответ приходит Address successfully updated": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"В ответ приходит Address successfully updated": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2641
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"В ответ приходит Address successfully updated": true
+				}
+			]
+		},
+		{
+			"id": "0ab5ae1a-4536-4f5c-af7b-a67906923ba1",
+			"name": "Get Place Mod",
+			"url": "https://rahulshettyacademy.com/maps/api/place/get/json?key=qaclick123&place_id=b260480cde5df0a9bc2724ec5ae61acb",
+			"time": 1979,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Адрес изменен на Ovechkina 83, RU": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Адрес изменен на Ovechkina 83, RU": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1979
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Адрес изменен на Ovechkina 83, RU": true
+				}
+			]
+		},
+		{
+			"id": "da92b675-0ae1-4fd7-b3ae-ebb376d176be",
+			"name": "Delete Place",
+			"url": "https://rahulshettyacademy.com/maps/api/place/delete/json?key=qaclick123",
+			"time": 2432,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Status OK": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status OK": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2432
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Status OK": true
+				}
+			]
+		},
+		{
+			"id": "d15cc8cd-2dde-4c0c-b1e0-b817029ff92e",
+			"name": "Get Place Del",
+			"url": "https://rahulshettyacademy.com/maps/api/place/get/json?key=qaclick123&place_id=b260480cde5df0a9bc2724ec5ae61acb",
+			"time": 1979,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code is 404": true,
+				"Get operation failed, looks like place_id  doesn't exists": true
+			},
+			"testPassFailCounts": {
+				"Status code is 404": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Get operation failed, looks like place_id  doesn't exists": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1979
+			],
+			"allTests": [
+				{
+					"Status code is 404": true,
+					"Get operation failed, looks like place_id  doesn't exists": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 11838,
+	"collection": {
+		"requests": [
+			{
+				"id": "1b2bc08e-4691-41ed-ad08-52949cd07509",
+				"method": "POST"
+			},
+			{
+				"id": "edf5b15e-b409-41bd-8671-c8a4ce88d8b8",
+				"method": "GET"
+			},
+			{
+				"id": "d7be608c-3d5b-4277-9f64-ade311e393f6",
+				"method": "PUT"
+			},
+			{
+				"id": "0ab5ae1a-4536-4f5c-af7b-a67906923ba1",
+				"method": "GET"
+			},
+			{
+				"id": "da92b675-0ae1-4fd7-b3ae-ebb376d176be",
+				"method": "DELETE"
+			},
+			{
+				"id": "d15cc8cd-2dde-4c0c-b1e0-b817029ff92e",
+				"method": "GET"
+			}
+		]
+	}
+}
