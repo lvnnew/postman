@@ -1,0 +1,3340 @@
+{
+	"info": {
+		"_postman_id": "e26cfeca-7153-48ba-91cf-6bae4f05c283",
+		"name": "TestIT API v2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Attachments",
+			"item": [
+				{
+					"name": "Upload attachments",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"contentType": "image/png",
+									"type": "file",
+									"src": "file path"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/v2/Attachments",
+							"protocol": "http",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"Attachments"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AutoTests",
+			"item": [
+				{
+					"name": "Get all AutoTests (if parameters are specified, then it's filtered by them.)",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/autoTests",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"autoTests"
+							],
+							"query": [
+								{
+									"key": "projectId",
+									"value": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+									"description": "Project internal identifier",
+									"disabled": true
+								},
+								{
+									"key": "externalId",
+									"value": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+									"description": "Autotest external identifier",
+									"disabled": true
+								},
+								{
+									"key": "globalId",
+									"value": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+									"description": "Autotest global identifier",
+									"disabled": true
+								},
+								{
+									"key": "Namespace",
+									"value": "Example",
+									"description": "Name of abstract storage where autotest is located",
+									"disabled": true
+								},
+								{
+									"key": "isNamespaceNull",
+									"value": "true",
+									"description": "Boolean flag which defines if search must include autotests with null value Namespace attribute",
+									"disabled": true
+								},
+								{
+									"key": "classname",
+									"value": "Example",
+									"description": "Name of the class where autotest is located",
+									"disabled": true
+								},
+								{
+									"key": "isClassnameNull",
+									"value": "true",
+									"description": "Boolean flag which defines if search must include autotests with null value Classname attribute",
+									"disabled": true
+								},
+								{
+									"key": "isDeleted",
+									"value": "true",
+									"description": "Boolean flag which defines if search must include deleted autotests",
+									"disabled": true
+								},
+								{
+									"key": "labels",
+									"value": "Example",
+									"description": "List of autotests labels.  A separate parameter is required for each of the labels.",
+									"disabled": true
+								},
+								{
+									"key": "Skip",
+									"value": "Amount of items to be skipped (offset)",
+									"description": "Amount of items to be skipped (offset)",
+									"disabled": true
+								},
+								{
+									"key": "Take",
+									"value": "Amount of items to be taken (limit)",
+									"description": "Amount of items to be taken (limit)",
+									"disabled": true
+								},
+								{
+									"key": "OrderBy",
+									"value": "SQL-like ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)",
+									"description": "SQL-like ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)",
+									"disabled": true
+								},
+								{
+									"key": "SearchField",
+									"value": "Property name for searching",
+									"description": "Property name for searching",
+									"disabled": true
+								},
+								{
+									"key": "SearchValue",
+									"value": "Value for searching",
+									"description": "Value for searching",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create AutoTest",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"externalId\": \"10001\",\r\n  \"links\": [\r\n    {\r\n      \"title\": \"string\",\r\n      \"url\": \"https://google.com/\",\r\n      \"description\": \"This link leads to google main page (no advertising)\",\r\n      \"type\": \"Related\",\r\n      \"hasInfo\": true\r\n    }\r\n  ],\r\n  \"projectId\": \"edbbef37-388e-4db7-bb05-7a0bee939da1\",\r\n  \"name\": \"WorkItem valid creation test\",\r\n  \"namespace\": \"UnitTest.Core\",\r\n  \"classname\": \"WorkItemServiceTest.cs\",\r\n  \"steps\": [\r\n    {\r\n      \"title\": \"Main part\",\r\n      \"description\": \"This is a very important part of a test\"\r\n    }\r\n  ],\r\n  \"setup\": [\r\n    {\r\n      \"title\": \"Main part\",\r\n      \"description\": \"This is a very important part of a test\"\r\n    }\r\n  ],\r\n  \"teardown\": [\r\n    {\r\n      \"title\": \"Main part\",\r\n      \"description\": \"This is a very important part of a test\"\r\n    }\r\n  ],\r\n  \"title\": \"WorkItem creation test\",\r\n  \"description\": \"This test is interned to validate correct workItem creation\",\r\n  \"labels\": [\r\n    {\r\n      \"name\": \"Black label\"\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/v2/autoTests",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"autoTests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update AutoTest",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\",\r\n  \"externalId\": \"10001\",\r\n  \"links\": [\r\n    {\r\n      \"id\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\",\r\n      \"title\": \"string\",\r\n      \"url\": \"https://google.com/\",\r\n      \"description\": \"This link leads to google main page (no advertising)\",\r\n      \"type\": \"Related\",\r\n      \"hasInfo\": true\r\n    }\r\n  ],\r\n  \"projectId\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\",\r\n  \"name\": \"WorkItem valid creation test\",\r\n  \"namespace\": \"UnitTest.Core\",\r\n  \"classname\": \"WorkItemServiceTest.cs\",\r\n  \"steps\": [\r\n    {\r\n      \"title\": \"Main part\",\r\n      \"description\": \"This is a very important part of a test\"\r\n    }\r\n  ],\r\n  \"setup\": [\r\n    {\r\n      \"title\": \"Main part\",\r\n      \"description\": \"This is a very important part of a test\"\r\n    }\r\n  ],\r\n  \"teardown\": [\r\n    {\r\n      \"title\": \"Main part\",\r\n      \"description\": \"This is a very important part of a test\"\r\n    }\r\n  ],\r\n  \"title\": \"WorkItem creation test\",\r\n  \"description\": \"This test is interned to validate correct workItem creation\",\r\n  \"labels\": [\r\n    {\r\n      \"name\": \"Black label\"\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/v2/autoTests",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"autoTests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get AutoTest by Id or GlobalId",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/autoTests/{{autoTestId}}",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"autoTests",
+								"{{autoTestId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get AutoTest by Id or GlobalId Copy",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/autoTests/{{autoTestId}}",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"autoTests",
+								"{{autoTestId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all WorkItems Ids linked to AutoTest by Id or GlobalId",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/autoTests/{{autoTestId}}/workItems",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"autoTests",
+								"{{autoTestId}}",
+								"workItems"
+							],
+							"query": [
+								{
+									"key": "isWorkItemDeleted",
+									"value": "false",
+									"description": "Boolean flag which defines if search must include deleted worItems",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Link AutoTest to WorkItem by Id or GlobalId",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/v2/autoTests/{{autoTestId}}/workItems",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"autoTests",
+								"{{autoTestId}}",
+								"workItems"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete AutoTest link from WorkItem by Id or GlobalId (if workItemId is not specified, then remove all links WorkItems to AutoTest)",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/autoTests/{{autoTestId}}/workItems",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"autoTests",
+								"{{autoTestId}}",
+								"workItems"
+							],
+							"query": [
+								{
+									"key": "workItemId",
+									"value": "edbbef37-388e-4db7-bb05-7a0bee939dab",
+									"description": "workItem internal (guid format) or global (integer format) identifier",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "History of TestResults for AutoTest by Id or GlobalId",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/autoTests/{{autoTestId}}/testResultHistory",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"autoTests",
+								"{{autoTestId}}",
+								"testResultHistory"
+							],
+							"query": [
+								{
+									"key": "From",
+									"value": "2017-07-21",
+									"disabled": true
+								},
+								{
+									"key": "To",
+									"value": "2017-07-21",
+									"disabled": true
+								},
+								{
+									"key": "ConfigurationIds",
+									"value": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+									"description": "A separate parameter is required for each of the labels.",
+									"disabled": true
+								},
+								{
+									"key": "TestPlanIds\n",
+									"value": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+									"description": "A separate parameter is required for each of the labels.",
+									"disabled": true
+								},
+								{
+									"key": "UserIds",
+									"value": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+									"description": "A separate parameter is required for each of the labels.",
+									"disabled": true
+								},
+								{
+									"key": "Outcomes",
+									"value": "Passed",
+									"description": "A separate parameter is required for each of the labels.",
+									"disabled": true
+								},
+								{
+									"key": "IsAutomated",
+									"value": "true",
+									"description": "Boolean",
+									"disabled": true
+								},
+								{
+									"key": "TestRunIds",
+									"value": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+									"description": "A separate parameter is required for each of the labels.",
+									"disabled": true
+								},
+								{
+									"key": "Skip",
+									"value": "Amount of items to be skipped (offset)",
+									"description": "Amount of items to be skipped (offset)",
+									"disabled": true
+								},
+								{
+									"key": "Take",
+									"value": "Amount of items to be taken (limit)",
+									"description": "Amount of items to be taken (limit)",
+									"disabled": true
+								},
+								{
+									"key": "OrderBy",
+									"value": "SQL-like ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)",
+									"description": "SQL-like ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)",
+									"disabled": true
+								},
+								{
+									"key": "SearchField",
+									"value": "Property name for searching",
+									"description": "Property name for searching",
+									"disabled": true
+								},
+								{
+									"key": "SearchValue",
+									"value": "Value for searching",
+									"description": "Value for searching",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Stopped and completed TestRuns which contain AutoTest by Id or GlobalId",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/autoTests/{{autoTestId}}/testRuns",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"autoTests",
+								"{{autoTestId}}",
+								"testRuns"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get AutoTest average duration by Id or GlobalId",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/autoTests/{{autoTestId}}/averageDuration",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"autoTests",
+								"{{autoTestId}}",
+								"averageDuration"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get AutoTest chronology by Id or GlobalId",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/autoTests/{{autoTestId}}/chronology",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"autoTests",
+								"{{autoTestId}}",
+								"chronology"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Configurations",
+			"item": [
+				{
+					"name": "Get Configuration by Id or GlobalId",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/configurations/{{configurationId}}",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"configurations",
+								"{{configurationId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Configuration",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"description\": \"Default configuration\",\r\n  \"isActive\": true,\r\n  \"capabilities\": {\r\n    \"additionalProp1\": \"string\",\r\n    \"additionalProp2\": \"string\",\r\n    \"additionalProp3\": \"string\"\r\n  },\r\n  \"projectId\": \"edbbef37-388e-4db7-bb05-7a0bee939dab\",\r\n  \"isDefault\": true,\r\n  \"name\": \"Default\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/v2/configurations",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"configurations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Configuration",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\",\r\n  \"description\": \"Default configuration\",\r\n  \"isActive\": true,\r\n  \"capabilities\": {\r\n    \"additionalProp1\": \"string\",\r\n    \"additionalProp2\": \"string\",\r\n    \"additionalProp3\": \"string\"\r\n  },\r\n  \"projectId\": \"edbbef37-388e-4db7-bb05-7a0bee939dab\",\r\n  \"isDefault\": true,\r\n  \"name\": \"Default\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/v2/configurations",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"configurations"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Parametrs",
+			"item": [
+				{
+					"name": "Get all parameters (if isDeleted is true, return deleted parameters)",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/parameters",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"parameters"
+							],
+							"query": [
+								{
+									"key": "isDeleted",
+									"value": "true",
+									"description": "Boolean flag which defines if search must include deleted autotests",
+									"disabled": true
+								},
+								{
+									"key": "Skip",
+									"value": "Amount of items to be skipped (offset)",
+									"description": "Amount of items to be skipped (offset)",
+									"disabled": true
+								},
+								{
+									"key": "Take",
+									"value": "Amount of items to be taken (limit)",
+									"description": "Amount of items to be taken (limit)",
+									"disabled": true
+								},
+								{
+									"key": "OrderBy",
+									"value": "SQL-like ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)",
+									"description": "SQL-like ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)",
+									"disabled": true
+								},
+								{
+									"key": "SearchField",
+									"value": "Property name for searching",
+									"description": "Property name for searching",
+									"disabled": true
+								},
+								{
+									"key": "SearchValue",
+									"value": "Value for searching",
+									"description": "Value for searching",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create parameter",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"string\",\r\n  \"value\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/v2/parameters",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"parameters"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update parameter",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\",\r\n  \"name\": \"string\",\r\n  \"value\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/v2/autoTests",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"autoTests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get parameter by id",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/parameters/{{parameterId}}",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"parameters",
+								"{{parameterId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete parameter by id",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/parameters/{{parameterId}}",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"parameters",
+								"{{parameterId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete parameters by name",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/parameters/deleteByName",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"parameters",
+								"deleteByName"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "example",
+									"description": "Parameter name(string format)",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Projects",
+			"item": [
+				{
+					"name": "Get all Projects (if isDeleted is true, return deleted Projects)",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/projects",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"projects"
+							],
+							"query": [
+								{
+									"key": "isDeleted",
+									"value": "true",
+									"description": "Boolean flag which defines if search must include deleted autotests",
+									"disabled": true
+								},
+								{
+									"key": "projectName",
+									"value": "projectName",
+									"disabled": true
+								},
+								{
+									"key": "Skip",
+									"value": "Amount of items to be skipped (offset)",
+									"description": "Amount of items to be skipped (offset)",
+									"disabled": true
+								},
+								{
+									"key": "Take",
+									"value": "Amount of items to be taken (limit)",
+									"description": "Amount of items to be taken (limit)",
+									"disabled": true
+								},
+								{
+									"key": "OrderBy",
+									"value": "SQL-like ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)",
+									"description": "SQL-like ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)",
+									"disabled": true
+								},
+								{
+									"key": "SearchField",
+									"value": "Property name for searching",
+									"description": "Property name for searching",
+									"disabled": true
+								},
+								{
+									"key": "SearchValue",
+									"value": "Value for searching",
+									"description": "Value for searching",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Project",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"description\": \"This project contains core tests\",\r\n  \"name\": \"Core test1s\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/v2/projects",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Project Copy",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\",\r\n  \"description\": \"This project contains core tests\",\r\n  \"name\": \"Core tests\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/v2/projects",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Project by Id or GlobalId",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/projects/{{projectId}}",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"projects",
+								"{{projectId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Project by Id or GlobalId",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/projects/{{projectId}}",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"projects",
+								"{{projectId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Restore Project by Id or GlobalId",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"description\": \"This project contains core tests\",\r\n  \"name\": \"Core test1s\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/v2/projects/{{projectId}}/restore",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"projects",
+								"{{projectId}}",
+								"restore"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Sections for Project by Id or GlobalId",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/projects/{{projectId}}/sections",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"projects",
+								"{{projectId}}",
+								"sections"
+							],
+							"query": [
+								{
+									"key": "Skip",
+									"value": "Amount of items to be skipped (offset)",
+									"description": "Amount of items to be skipped (offset)",
+									"disabled": true
+								},
+								{
+									"key": "Take",
+									"value": "Amount of items to be taken (limit)",
+									"description": "Amount of items to be taken (limit)",
+									"disabled": true
+								},
+								{
+									"key": "OrderBy",
+									"value": "SQL-like ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)",
+									"description": "SQL-like ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)",
+									"disabled": true
+								},
+								{
+									"key": "SearchField",
+									"value": "Property name for searching",
+									"description": "Property name for searching",
+									"disabled": true
+								},
+								{
+									"key": "SearchValue",
+									"value": "Value for searching",
+									"description": "Value for searching",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get AutoTests Namespaces for Project by Id or GlobalId",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/projects/{{projectId}}/autoTestsNamespaces",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"projects",
+								"{{projectId}}",
+								"autoTestsNamespaces"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get WorkItems for Project by Id or GlobalId (if isDeleted is true, return deleted WorkItems)",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/projects/{{projectId}}/workitems",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"projects",
+								"{{projectId}}",
+								"workitems"
+							],
+							"query": [
+								{
+									"key": "isDeleted",
+									"value": "false",
+									"description": "Boolean flag which defines if search must include deleted workitems",
+									"disabled": true
+								},
+								{
+									"key": "tagNames",
+									"value": "example",
+									"description": "Array of workitem tag names. A separate parameter is required for each of the labels.",
+									"disabled": true
+								},
+								{
+									"key": "Skip",
+									"value": "Amount of items to be skipped (offset)",
+									"description": "Amount of items to be skipped (offset)",
+									"disabled": true
+								},
+								{
+									"key": "Take",
+									"value": "Amount of items to be taken (limit)",
+									"description": "Amount of items to be taken (limit)",
+									"disabled": true
+								},
+								{
+									"key": "OrderBy",
+									"value": "SQL-like ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)",
+									"description": "SQL-like ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)",
+									"disabled": true
+								},
+								{
+									"key": "SearchField",
+									"value": "Property name for searching",
+									"description": "Property name for searching",
+									"disabled": true
+								},
+								{
+									"key": "SearchValue",
+									"value": "Value for searching",
+									"description": "Value for searching",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Configurations for Project by Id or GlobalId",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/projects/{{projectId}}/configurations",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"projects",
+								"{{projectId}}",
+								"configurations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Projects Attributes by Id or GlobalId",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/projects/{{projectId}}/attributes",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"projects",
+								"{{projectId}}",
+								"attributes"
+							],
+							"query": [
+								{
+									"key": "isDeleted",
+									"value": "false",
+									"description": "Boolean flag which defines if search must include deleted attributes",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Projects Attribute",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"options\": [\r\n    {\r\n      \"value\": \"5 hours\",\r\n      \"isDefault\": true\r\n    }\r\n  ],\r\n  \"type\": \"string\",\r\n  \"name\": \"Original estimate\",\r\n  \"enabled\": true,\r\n  \"required\": true,\r\n  \"isGlobal\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/v2/projects/{{projectId}}/attributes",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"projects",
+								"{{projectId}}",
+								"attributes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Projects Attribute",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\",\r\n  \"options\": [\r\n    {\r\n      \"id\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\",\r\n      \"isDeleted\": true,\r\n      \"value\": \"5 hours\",\r\n      \"isDefault\": true\r\n    }\r\n  ],\r\n  \"type\": \"string\",\r\n  \"isDeleted\": true,\r\n  \"name\": \"Original estimate\",\r\n  \"enabled\": true,\r\n  \"required\": true,\r\n  \"isGlobal\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/v2/projects/{{projectId}}/attributes",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"projects",
+								"{{projectId}}",
+								"attributes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Projects Attribute by Id",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/projects/{{projectId}}/attributes/{{attributeId}}",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"projects",
+								"{{projectId}}",
+								"attributes",
+								"{{attributeId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Projects Attribute by Id",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/projects/{{projectId}}/attributes/{{attributeId}}",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"projects",
+								"{{projectId}}",
+								"attributes",
+								"{{attributeId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get TestPlans for Project by Id or GlobalId (if isDeleted is true, return deleted TestPlans)",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/projects/{{projectId}}/testPlans",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"projects",
+								"{{projectId}}",
+								"testPlans"
+							],
+							"query": [
+								{
+									"key": "isDeleted",
+									"value": "false",
+									"description": "Boolean flag which defines if search must include deleted testPlans",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get TestRuns for Project by Id or GlobalId",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/projects/{{projectId}}/testRuns",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"projects",
+								"{{projectId}}",
+								"testRuns"
+							],
+							"query": [
+								{
+									"key": "NotStarted",
+									"value": "false",
+									"description": "TestRun status",
+									"disabled": true
+								},
+								{
+									"key": "InProgress",
+									"value": "false",
+									"description": "TestRun status",
+									"disabled": true
+								},
+								{
+									"key": "Stopped",
+									"value": "false",
+									"description": "TestRun status",
+									"disabled": true
+								},
+								{
+									"key": "Completed",
+									"value": "false",
+									"description": "TestRun status",
+									"disabled": true
+								},
+								{
+									"key": "CreatedDateFrom",
+									"value": "2017-07-21",
+									"disabled": true
+								},
+								{
+									"key": "CreatedDateTo",
+									"value": "2017-07-21",
+									"disabled": true
+								},
+								{
+									"key": "TestPlanId",
+									"value": "111000",
+									"disabled": true
+								},
+								{
+									"key": "Skip",
+									"value": "1",
+									"description": "Amount of items to be skipped (offset)",
+									"disabled": true
+								},
+								{
+									"key": "Take",
+									"value": "100",
+									"description": "\t\nAmount of items to be taken (limit)",
+									"disabled": true
+								},
+								{
+									"key": "OrderBy",
+									"value": null,
+									"description": "SQL-like ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)",
+									"disabled": true
+								},
+								{
+									"key": "SearchField",
+									"value": null,
+									"description": "Property name for searching",
+									"disabled": true
+								},
+								{
+									"key": "SearchValue",
+									"value": null,
+									"description": "Value for searching",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Export Project with tests, sections and configurations in json file",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"sectionIds\": [\r\n    \"3fa85f64-5717-4562-b3fc-2c963f66afa6\"\r\n  ],\r\n  \"workItemIds\": [\r\n    \"3fa85f64-5717-4562-b3fc-2c963f66afa6\"\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/v2/projects/{{projectId}}/export",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"projects",
+								"{{projectId}}",
+								"export"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Export Project with tests, sections, configurations, testPlans, testSuites and testPoints as json file",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"testPlansIds\": [\r\n    \"3fa85f64-5717-4562-b3fc-2c963f66afa6\"\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/v2/projects/{{projectId}}/export-by-testPlans",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"projects",
+								"{{projectId}}",
+								"export-by-testPlans"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Import to existing Project from json file. Sections can be imported in only one target project!",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "file",
+							"file": {
+								"src": ""
+							},
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/v2/projects/{{projectId}}/import",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"projects",
+								"{{projectId}}",
+								"import"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Import Project from json file Project can be imported only once (this method or ImportToExistingProject) Next import will sync content in previously imported project. Copy",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "file",
+							"file": {
+								"src": ""
+							},
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/v2/projects/import",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"projects",
+								"import"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sections",
+			"item": [
+				{
+					"name": "Get section by id",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/sections/{{sectionId}}",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"sections",
+								"{{sectionId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete section by id",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/sections/{{sectionId}}",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"sections",
+								"{{sectionId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create section",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\",\r\n  \"projectId\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\",\r\n  \"parentId\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\",\r\n  \"preconditionSteps\": [\r\n    {\r\n      \"id\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\",\r\n      \"action\": \"User press the button\",\r\n      \"expected\": \"System makes a beeeep sound\",\r\n      \"testData\": \"Some variables values\",\r\n      \"comments\": \"Comment on what to look for\",\r\n      \"workItemId\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\"\r\n    }\r\n  ],\r\n  \"postconditionSteps\": [\r\n    {\r\n      \"id\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\",\r\n      \"action\": \"User press the button\",\r\n      \"expected\": \"System makes a beeeep sound\",\r\n      \"testData\": \"Some variables values\",\r\n      \"comments\": \"Comment on what to look for\",\r\n      \"workItemId\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\"\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/v2/sections",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"sections"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update section",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"name\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\",\r\n  \"projectId\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\",\r\n  \"parentId\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\",\r\n  \"preconditionSteps\": [\r\n    {\r\n      \"id\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\",\r\n      \"action\": \"User press the button\",\r\n      \"expected\": \"System makes a beeeep sound\",\r\n      \"testData\": \"Some variables values\",\r\n      \"comments\": \"Comment on what to look for\",\r\n      \"workItemId\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\"\r\n    }\r\n  ],\r\n  \"postconditionSteps\": [\r\n    {\r\n      \"id\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\",\r\n      \"action\": \"User press the button\",\r\n      \"expected\": \"System makes a beeeep sound\",\r\n      \"testData\": \"Some variables values\",\r\n      \"comments\": \"Comment on what to look for\",\r\n      \"workItemId\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\"\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/v2/sections",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"sections"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Rename section",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\",\r\n  \"name\": \"New root section\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/v2/sections/rename",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"sections",
+								"rename"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Move section. Can be moved inside another section. It is possible to indicate a project",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"Root section\",\r\n  \"oldParentId\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\",\r\n  \"parentId\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\",\r\n  \"nextSectionId\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/v2/sections/move",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"sections",
+								"move"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get WorkItems for Section (if isDeleted is true, return deleted WorkItems)",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/sections/{{sectionId}}/workitems",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"sections",
+								"{{sectionId}}",
+								"workitems"
+							],
+							"query": [
+								{
+									"key": "isDeleted",
+									"value": "false",
+									"description": "Flag that defines if deleted workitems must be include in the response",
+									"disabled": true
+								},
+								{
+									"key": "tagNames",
+									"value": "example",
+									"description": "Array of workitem tag names. A separate parameter is required for each of the labels.",
+									"disabled": true
+								},
+								{
+									"key": "Skip",
+									"value": "1",
+									"description": "Amount of items to be skipped (offset)",
+									"disabled": true
+								},
+								{
+									"key": "Take",
+									"value": "100",
+									"description": "\t\nAmount of items to be taken (limit)",
+									"disabled": true
+								},
+								{
+									"key": "OrderBy",
+									"value": null,
+									"description": "SQL-like ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)",
+									"disabled": true
+								},
+								{
+									"key": "SearchField",
+									"value": null,
+									"description": "Property name for searching",
+									"disabled": true
+								},
+								{
+									"key": "SearchValue",
+									"value": null,
+									"description": "Value for searching",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TestPlans",
+			"item": [
+				{
+					"name": "Get TestPlan by Id",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/testPlans/{{testPlanId}}",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"testPlans",
+								"{{testPlanId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete TestPlan by Id",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/testPlans/{{testPlanId}}",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"testPlans",
+								"{{testPlanId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create TestPlan",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"tags\": [\r\n    {\r\n      \"name\": \"string\"\r\n    }\r\n  ],\r\n  \"name\": \"Base test plan\",\r\n  \"startDate\": \"2021-08-04T16:08:10.2088821+00:00\",\r\n  \"endDate\": \"2021-08-04T16:08:10.2088821+00:00\",\r\n  \"description\": \"This is a base test plan\",\r\n  \"build\": \"v.3.0.0-b94f3055\",\r\n  \"projectId\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\",\r\n  \"productName\": \"Billing service\",\r\n  \"hasAutomaticDurationTimer\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/v2/testPlans",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"testPlans"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update TestPlan",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\",\r\n  \"lockedById\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"tags\": [\r\n    {\r\n      \"name\": \"string\"\r\n    }\r\n  ],\r\n  \"name\": \"Base test plan\",\r\n  \"startDate\": \"2021-08-04T16:08:10.2088821+00:00\",\r\n  \"endDate\": \"2021-08-04T16:08:10.2088821+00:00\",\r\n  \"description\": \"This is a base test plan\",\r\n  \"build\": \"v.3.0.0-b94f3055\",\r\n  \"projectId\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\",\r\n  \"productName\": \"Billing service\",\r\n  \"hasAutomaticDurationTimer\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/v2/testPlans",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"testPlans"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Restore TestPlan",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/testPlans/{{testPlanId}}/restore",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"testPlans",
+								"{{testPlanId}}",
+								"restore"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Clone TestPlan",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/testPlans/{{testPlanId}}/clone",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"testPlans",
+								"{{testPlanId}}",
+								"clone"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Start TestPlan",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/testPlans/{{testPlanId}}/start",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"testPlans",
+								"{{testPlanId}}",
+								"start"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pause TestPlan",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/testPlans/{{testPlanId}}/pause",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"testPlans",
+								"{{testPlanId}}",
+								"pause"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Complete TestPlan",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/testPlans/{{testPlanId}}/complete",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"testPlans",
+								"{{testPlanId}}",
+								"complete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get TestSuites Tree By Id",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/testPlans/{{testPlanId}}/testSuites",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"testPlans",
+								"{{testPlanId}}",
+								"testSuites"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add WorkItems to TestPlan with Sections as TestSuites",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  \"3fa85f64-5717-4562-b3fc-2c963f66afa6\"\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/v2/testPlans/{{testPlanId}}/workItems/withSections",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"testPlans",
+								"{{testPlanId}}",
+								"workItems",
+								"withSections"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TestResults",
+			"item": [
+				{
+					"name": "Get all attachments of TestResult",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/testResults/{{testResultId}}/attachments",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"testResults",
+								"{{testResultId}}",
+								"attachments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload and link attachment to TestResult",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "file",
+							"file": {},
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/v2/testResults/{{testResultId}}/attachments",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"testResults",
+								"{{testResultId}}",
+								"attachments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all attachments of TestResult Copy",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/testResults/{{testResultId}}/attachments",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"testResults",
+								"{{testResultId}}",
+								"attachments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove attachment and unlink from TestResult",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/testResults/{{testResultId}}/attachments/{{attachmentId}}",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"testResults",
+								"{{testResultId}}",
+								"attachments",
+								"{{attachmentId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Metadata of TestResult's attachment",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/testResults/{{testResultId}}/attachments/{{attachmentId}}/info",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"testResults",
+								"{{testResultId}}",
+								"attachments",
+								"{{attachmentId}}",
+								"info"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TestRuns",
+			"item": [
+				{
+					"name": "Create empty TestRun",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"projectId\": \"ccdd8fd1-c610-4997-a5bd-77a5e6135060\",\r\n  \"name\": \"First run\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/v2/testRuns",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"testRuns"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update empty TestRun",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"9022d7e3-ddea-4800-b005-0a2e99b85a6c\",\r\n  \"name\": \"First111 run\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/v2/testRuns",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"testRuns"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create TestRun with TestPoints selected using ConfigurationIds and WorkItem Ids",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"configurationIds\": [\r\n    \"3fa85f64-5717-4562-b3fc-2c963f66afa6\"\r\n  ],\r\n  \"workitemIds\": [\r\n    \"3fa85f64-5717-4562-b3fc-2c963f66afa6\"\r\n  ],\r\n  \"projectId\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\",\r\n  \"testPlanId\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\",\r\n  \"name\": \"First run\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/v2/testRuns/byWorkItems",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"testRuns",
+								"byWorkItems"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create TestRun with TestPointSelectors based on ConfigurationId and WorkItem Ids",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"testPointSelectors\": [\r\n    {\r\n      \"configurationId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n      \"workitemIds\": [\r\n        \"3fa85f64-5717-4562-b3fc-2c963f66afa6\"\r\n      ]\r\n    }\r\n  ],\r\n  \"projectId\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\",\r\n  \"testPlanId\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\",\r\n  \"name\": \"First run\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/v2/testRuns/byConfigurations",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"testRuns",
+								"byConfigurations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create TestRun without TestPoints using ConfigurationIds and AutoTestIds",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"projectId\": \"ccdd8fd1-c610-4997-a5bd-77a5e6135060\",\r\n  \"name\": \"First run\",\r\n  \"configurationIds\": [\r\n    \"b22225bd-eed7-49aa-af4d-9c3e110564d4\"\r\n  ],\r\n  \"autoTestExternalIds\": [\r\n    \"1\"\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/v2/testRuns/byAutoTests",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"testRuns",
+								"byAutoTests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get TestRun by Id",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/testRuns/{{testRunId}}",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"testRuns",
+								"{{testRunId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Start TestRun",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/testRuns/{{testRunId}}/start",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"testRuns",
+								"{{testRunId}}",
+								"start"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Stop TestRun",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/testRuns/{{testRunId}}/stop",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"testRuns",
+								"{{testRunId}}",
+								"stop"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Complete TestRun",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/testRuns/{{testRunId}}/complete",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"testRuns",
+								"{{testRunId}}",
+								"complete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set AutoTest Results For TestRun",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {\r\n    \"configurationId\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\",\r\n    \"links\": [\r\n      {\r\n        \"title\": \"string\",\r\n        \"url\": \"https://google.com/\",\r\n        \"description\": \"This link leads to google main page (no advertising)\",\r\n        \"type\": \"Related\",\r\n        \"hasInfo\": true\r\n      }\r\n    ],\r\n    \"failureReasonName\": \"NoDefect\",\r\n    \"autoTestExternalId\": \"10001\",\r\n    \"outcome\": \"Passed\",\r\n    \"message\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\",\r\n    \"traces\": \"Exception in thread main java.lang.NullPointerException at com.example.myproject.MyTest.HealtCheck()\",\r\n    \"startedOn\": \"2021-08-04T16:08:10.2088821+00:00\",\r\n    \"completedOn\": \"2021-08-04T16:08:10.2088821+00:00\",\r\n    \"duration\": 10987,\r\n    \"attachments\": [\r\n      {\r\n        \"id\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\"\r\n      }\r\n    ],\r\n    \"parameters\": {\r\n      \"additionalProp1\": \"string\",\r\n      \"additionalProp2\": \"string\",\r\n      \"additionalProp3\": \"string\"\r\n    },\r\n    \"properties\": {\r\n      \"additionalProp1\": \"string\",\r\n      \"additionalProp2\": \"string\",\r\n      \"additionalProp3\": \"string\"\r\n    },\r\n    \"stepResults\": [\r\n      {\r\n        \"title\": \"Final autotest step\",\r\n        \"description\": \"This step must be the las one\",\r\n        \"startedOn\": \"2021-08-04T16:08:10.2088821+00:00\",\r\n        \"completedOn\": \"2021-08-04T16:08:10.2088821+00:00\",\r\n        \"duration\": 100000,\r\n        \"outcome\": \"Passed\",\r\n        \"attachments\": [\r\n          {\r\n            \"id\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\"\r\n          }\r\n        ],\r\n        \"parameters\": {\r\n          \"additionalProp1\": \"string\",\r\n          \"additionalProp2\": \"string\",\r\n          \"additionalProp3\": \"string\"\r\n        }\r\n      }\r\n    ],\r\n    \"setupResults\": [\r\n      {\r\n        \"title\": \"Final autotest step\",\r\n        \"description\": \"This step must be the las one\",\r\n        \"startedOn\": \"2021-08-04T16:08:10.2088821+00:00\",\r\n        \"completedOn\": \"2021-08-04T16:08:10.2088821+00:00\",\r\n        \"duration\": 100000,\r\n        \"outcome\": \"Passed\",\r\n        \"attachments\": [\r\n          {\r\n            \"id\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\"\r\n          }\r\n        ],\r\n        \"parameters\": {\r\n          \"additionalProp1\": \"string\",\r\n          \"additionalProp2\": \"string\",\r\n          \"additionalProp3\": \"string\"\r\n        }\r\n      }\r\n    ],\r\n    \"teardownResults\": [\r\n      {\r\n        \"title\": \"Final autotest step\",\r\n        \"description\": \"This step must be the las one\",\r\n        \"startedOn\": \"2021-08-04T16:08:10.2088821+00:00\",\r\n        \"completedOn\": \"2021-08-04T16:08:10.2088821+00:00\",\r\n        \"duration\": 100000,\r\n        \"outcome\": \"Passed\",\r\n        \"attachments\": [\r\n          {\r\n            \"id\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\"\r\n          }\r\n        ],\r\n        \"parameters\": {\r\n          \"additionalProp1\": \"string\",\r\n          \"additionalProp2\": \"string\",\r\n          \"additionalProp3\": \"string\"\r\n        }\r\n      }\r\n    ]\r\n  }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/v2/testRuns/{{testRunId}}/testResults",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"testRuns",
+								"{{testRunId}}",
+								"testResults"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TestSuites",
+			"item": [
+				{
+					"name": "Get TestSuite by Id",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/testSuites/{{testSuiteId}}",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"testSuites",
+								"{{testSuiteId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete TestSuite by Id",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/testSuites/{{testSuiteId}}",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"testSuites",
+								"{{testSuiteId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create TestSuite",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"parentId\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\",\r\n  \"testPlanId\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\",\r\n  \"name\": \"base test suite\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/v2/testSuites",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"testSuites"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update TestSuite",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"parentId\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"name\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/v2/testSuites",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"testSuites"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get TestPoints By Id",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/testSuites/{{testSuiteId}}/testPoints",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"testSuites",
+								"{{testSuiteId}}",
+								"testPoints"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get TestResults By Id",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/testSuites/{{testSuiteId}}/testResults",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"testSuites",
+								"{{testSuiteId}}",
+								"testResults"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get WorkItems By Id",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/testSuites/{{testSuiteId}}/workItems",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"testSuites",
+								"{{testSuiteId}}",
+								"workItems"
+							],
+							"query": [
+								{
+									"key": "isDeleted",
+									"value": "false",
+									"description": "Flag that defines if deleted workitems must be include in the response",
+									"disabled": true
+								},
+								{
+									"key": "tagNames",
+									"value": null,
+									"description": "Array of workitem tag names. A separate parameter is required for each of the labels.",
+									"disabled": true
+								},
+								{
+									"key": "Skip",
+									"value": null,
+									"description": "Amount of items to be skipped (offset)",
+									"disabled": true
+								},
+								{
+									"key": "Take",
+									"value": null,
+									"description": "Amount of items to be taken (limit)",
+									"disabled": true
+								},
+								{
+									"key": "OrderBy",
+									"value": null,
+									"description": "SQL-like ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC)",
+									"disabled": true
+								},
+								{
+									"key": "SearchField",
+									"value": null,
+									"description": "Property name for searching",
+									"disabled": true
+								},
+								{
+									"key": "SearchValue",
+									"value": null,
+									"description": "Value for searching",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set WorkItems By TestSuite Id",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  \"af34ec06-e8bb-42f9-855b-63919ba3a186\"\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/v2/testSuites/{{testSuiteId}}/workItems",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"testSuites",
+								"{{testSuiteId}}",
+								"workItems"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Configurations By Id",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/testSuites/{{testSuiteId}}/configurations",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"testSuites",
+								"{{testSuiteId}}",
+								"configurations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set Configurations By TestSuite Id",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  \"3fa85f64-5717-4562-b3fc-2c963f66afa6\"\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/v2/testSuites/{{testSuiteId}}/configurations",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"testSuites",
+								"{{testSuiteId}}",
+								"configurations"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "WorkItems",
+			"item": [
+				{
+					"name": "Get Test Case,Check List or Shared Step by Id or GlobalId",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/workItems/{{workItemId}}",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"workItems",
+								"{{workItemId}}"
+							],
+							"query": [
+								{
+									"key": "versionId",
+									"value": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+									"description": "WorkItem version (guid format) identifier",
+									"disabled": true
+								},
+								{
+									"key": "versionNumber",
+									"value": "1",
+									"description": "WorkItem version number",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Test Case,Check List or Shared Step by Id or GlobalId",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/workItems/{{workItemId}}",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"workItems",
+								"{{workItemId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Test Case,Check List or Shared Step",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"entityTypeName\": \"TestCases\",\r\n  \"description\": \"This is a basic test template\",\r\n  \"state\": \"NeedsWork\",\r\n  \"priority\": \"Lowest\",\r\n  \"steps\": [\r\n    {\r\n      \"id\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\",\r\n      \"action\": \"User press the button\",\r\n      \"expected\": \"System makes a beeeep sound\",\r\n      \"testData\": \"Some variables values\",\r\n      \"comments\": \"Comment on what to look for\",\r\n      \"workItemId\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\"\r\n    }\r\n  ],\r\n  \"preconditionSteps\": [\r\n    {\r\n      \"id\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\",\r\n      \"action\": \"User press the button\",\r\n      \"expected\": \"System makes a beeeep sound\",\r\n      \"testData\": \"Some variables values\",\r\n      \"comments\": \"Comment on what to look for\",\r\n      \"workItemId\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\"\r\n    }\r\n  ],\r\n  \"postconditionSteps\": [\r\n    {\r\n      \"id\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\",\r\n      \"action\": \"User press the button\",\r\n      \"expected\": \"System makes a beeeep sound\",\r\n      \"testData\": \"Some variables values\",\r\n      \"comments\": \"Comment on what to look for\",\r\n      \"workItemId\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\"\r\n    }\r\n  ],\r\n  \"duration\": 10000,\r\n  \"attributes\": {\r\n    \"additionalProp1\": \"111\",\r\n    \"additionalProp2\": \"stri222ng\",\r\n    \"additionalProp3\": \"st3333ring\"\r\n  },\r\n  \"tags\": [\r\n    {\r\n      \"name\": \"string\"\r\n    }\r\n  ],\r\n  \"attachments\": [\r\n    {\r\n      \"id\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\"\r\n    }\r\n  ],\r\n  \"links\": [\r\n    {\r\n      \"title\": \"string\",\r\n      \"url\": \"https://google.com/\",\r\n      \"description\": \"This link leads to google main page (no advertising)\",\r\n      \"type\": \"Related\",\r\n      \"hasInfo\": true\r\n    }\r\n  ],\r\n  \"name\": \"Basic template\",\r\n  \"projectId\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\",\r\n  \"sectionId\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/v2/workItems",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"workItems"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Test Case,Check List or Shared Step",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"attachments\": [\r\n    {\r\n      \"id\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\"\r\n    }\r\n  ],\r\n  \"id\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\",\r\n  \"sectionId\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\",\r\n  \"description\": \"This is a basic test template\",\r\n  \"state\": \"NeedsWork\",\r\n  \"priority\": \"Lowest\",\r\n  \"steps\": [\r\n    {\r\n      \"id\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\",\r\n      \"action\": \"User press the button\",\r\n      \"expected\": \"System makes a beeeep sound\",\r\n      \"testData\": \"Some variables values\",\r\n      \"comments\": \"Comment on what to look for\",\r\n      \"workItemId\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\"\r\n    }\r\n  ],\r\n  \"preconditionSteps\": [\r\n    {\r\n      \"id\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\",\r\n      \"action\": \"User press the button\",\r\n      \"expected\": \"System makes a beeeep sound\",\r\n      \"testData\": \"Some variables values\",\r\n      \"comments\": \"Comment on what to look for\",\r\n      \"workItemId\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\"\r\n    }\r\n  ],\r\n  \"postconditionSteps\": [\r\n    {\r\n      \"id\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\",\r\n      \"action\": \"User press the button\",\r\n      \"expected\": \"System makes a beeeep sound\",\r\n      \"testData\": \"Some variables values\",\r\n      \"comments\": \"Comment on what to look for\",\r\n      \"workItemId\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\"\r\n    }\r\n  ],\r\n  \"duration\": 10000,\r\n  \"attributes\": {\r\n    \"additionalProp1\": \"string\",\r\n    \"additionalProp2\": \"string\",\r\n    \"additionalProp3\": \"string\"\r\n  },\r\n  \"tags\": [\r\n    {\r\n      \"name\": \"string\"\r\n    }\r\n  ],\r\n  \"links\": [\r\n    {\r\n      \"id\": \"e3ce2ac1-67c4-46b9-adcf-38b56e2f343f\",\r\n      \"title\": \"string\",\r\n      \"url\": \"https://google.com/\",\r\n      \"description\": \"This link leads to google main page (no advertising)\",\r\n      \"type\": \"Related\",\r\n      \"hasInfo\": true\r\n    }\r\n  ],\r\n  \"name\": \"Basic template\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/api/v2/workItems",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"workItems"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all AutoTests linked to WorkItem by Id or GlobalId",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/workItems/{{workItemId}}/autoTests",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"workItems",
+								"{{workItemId}}",
+								"autoTests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete all AutoTests linked to WorkItem by Id or GlobalId",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/workItems/{{workItemId}}/autoTests",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"workItems",
+								"{{workItemId}}",
+								"autoTests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get WorkItem chronology by Id or GlobalId",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/workItems/{{workItemId}}/chronology",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"workItems",
+								"{{workItemId}}",
+								"chronology"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get WorkItem versions",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {},
+						"strictSSL": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/api/v2/workItems/{{workItemId}}/versions",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"workItems",
+								"{{workItemId}}",
+								"versions"
+							],
+							"query": [
+								{
+									"key": "workItemVersionId",
+									"value": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+									"description": "WorkItem version (guid format) identifier",
+									"disabled": true
+								},
+								{
+									"key": "versionNumber",
+									"value": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+									"description": "WorkItem version (integer format) number",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "key",
+				"value": "Authorization",
+				"type": "string"
+			},
+			{
+				"key": "value",
+				"value": "PrivateToken SmVrclYTY4lYQjVnQjc3bTVu",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "domain",
+			"value": "http://example.testit.software"
+		},
+		{
+			"key": "autoTestId",
+			"value": "76111"
+		},
+		{
+			"key": "configurationId",
+			"value": "204398"
+		},
+		{
+			"key": "parameterId",
+			"value": "7eeced5c-3cee-46a5-b1c5-7d1b2aa2fcd7"
+		},
+		{
+			"key": "projectId",
+			"value": "1318822"
+		},
+		{
+			"key": "attributeId",
+			"value": "7eeced5c-3cee-46a5-b1c5-7d1b2aa2fcd7"
+		},
+		{
+			"key": "sectionId",
+			"value": "7eeced5c-3cee-46a5-b1c5-7d1b2aa2fcd7"
+		},
+		{
+			"key": "testPlanId",
+			"value": "7eeced5c-3cee-46a5-b1c5-7d1b2aa2fcd7"
+		},
+		{
+			"key": "testResultId",
+			"value": "7eeced5c-3cee-46a5-b1c5-7d1b2aa2fcd7"
+		},
+		{
+			"key": "attachmentId",
+			"value": "7eeced5c-3cee-46a5-b1c5-7d1b2aa2fcd7"
+		},
+		{
+			"key": "testRunId",
+			"value": "7eeced5c-3cee-46a5-b1c5-7d1b2aa2fcd7"
+		},
+		{
+			"key": "testSuiteId",
+			"value": "a0cd6ea3-309d-4c34-b89f-4b4a03993bc9"
+		},
+		{
+			"key": "workItemId",
+			"value": "a0cd6ea3-309d-4c34-b89f-4b4a03993bc9"
+		}
+	]
+}
